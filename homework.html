@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://fonts.googleapis.com/css?family=Alexandria' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .dropbtn {
+            background-color: #10438f;
+            color: #e9ebef;
+            padding: 16px;
+            font-size: 16px;
+            cursor: pointer;
+
+            border-radius: 20px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #c4aa16;
+        }
+
+
+        .display {
+            display: flex;
+            float: left;
+            margin-right: 100px;
+
+
+        }
+
+        .box {
+            width: 100%;
+            height: 80px;
+            background-color: rgb(255, 252, 252);
+            display: flex;
+
+        }
+
+        .navbar {
+            background-color: rgb(248, 245, 246);
+            width: 100%;
+            height: 80px;
+        }
+
+        .navdiv {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            padding-left: 100px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600px;
+            color: blue;
+        }
+
+        li {
+            list-style: none;
+            display: inline-block;
+        }
+
+        li a {
+            color: navy;
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 25px;
+        }
+
+        .img-size {
+            width: 100px;
+            height: 100px;
+        }
+
+        .grid-container {
+            align-items: center;
+            float: right;
+            padding-right: 50px;
+            display: grid;
+            grid-template-columns: auto;
+            row-gap: 30px;
+
+
+        }
+
+        .grid-item {
+            border: 0px solid black;
+            border-radius: 20px;
+            height: 120px;
+            background-color: white;
+            padding: 10px ;
+
+            font-size: 18px;
+            display: flex;
+            line-height: 50px;
+            
+
+        }
+
+        .grid-li {
+            padding: 1px;
+            font-size: 20px;
+            text-align: left;
+
+        }
+
+        .border-style {
+            border: solid grey;
+            background-color: gray;
+            border-radius: 14px;
+            padding: 5px;
+
+
+        }
+
+        .border-style:hover {
+            border: solid rgb(94, 57, 57);
+            background-color: rgb(94, 57, 57);
+            border-radius: 14px;
+            padding: 5px;
+        }
+
+        .left-side {
+            float: left;
+            width: 70%;
+        }
+
+        .right-side {
+            float: right;
+            width: 30%;
+        }
+
+        section {
+
+            display: list-item;
+            clear: both;
+        }
+
+       
+
+    </style>
+
+
+</head>
+
+
+<body>
+    <div style="font-family: 'Alexandria';">
+        <nav class="navbar">
+            <div class="navdiv">
+                <div class="logo"><a href="#">
+                        <h1>Shopi</h1>
+                    </a></div>
+                <ul>
+                    <li><a href="#"> HOME</a></li>
+                    <li><a href="#">POST FORMATS</a></li>
+                    <li><a href="#">PAGES</a></li>
+                    <li><a href="#">PURCHASE</a></li>
+                </ul>
+            </div>
+            <form class="d-flex">
+                <input class="form-control me-2" type="text" placeholder="Search">
+                <button class="btn btn-primary" type="button" style="height: 30px; width: 200px;">Search</button>
+            </form>
+    </div>
+</body>
+
+<body style="background-color: wheat; font-family:'Alexandria';">
+    <div style="padding-left: 100px;width: 95%;">
+        <div>
+            <h1>Shop</h1>
+        </div>
+        <div style="display: flex;justify-content: space-between; padding-right: 350px; ">
+            <span>SHOWING 1-12 OF 19 RESULTS</span>
+            <span class="dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                    style="background-color: wheat; border: none; color: black ;">
+                    DEFAULT SORTING
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">BEST PRICE</a></li>
+                    <li><a class="dropdown-item" href="#">HIGHT-LOW</a></li>
+                    <li><a class="dropdown-item" href="#">LOW-HIGHT</a></li>
+                </ul>
+            </span>
+        </div>
+        <section>
+            <div class="left-side"
+                style="padding-top: 35px; display: grid;grid-template-columns: auto auto auto;row-gap: 50px;">
+                <div style=" background-color: white; width: 200px;text-align: center;">
+                    <div><img src="src/bag.jpg" height="150px"></div>
+                    <p>
+                        New bag
+                    </p>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <p>200$</p>
+                    <button class="border-style">Buy now</button>
+                </div>
+
+                <div style="background-color:  white;width: 200px; text-align: center;">
+                    <div><img src="src/watch zinvo.jpg" height="150px"></div>
+                    <p>
+                        New Zinvo Watch
+                    </p>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <p>399$</p>
+                    <button class="border-style">Buy now</button>
+                </div>
+
+                <div style="background-color: white; width: 200px;text-align: center;">
+                    <div><img src="src/burberry hoodie.webp" height="150px"></div>
+                    <p>
+                        New Burberry hoodie
+                    </p>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <p>350$</p>
+                    <button class="border-style">Buy now</button>
+                </div>
+
+                <div style="background-color: white; text-align: center; width: 200px;">
+                    <div><img src="src/pedro shose.jpg" height="150px"></div>
+                    <p>
+                        New Pedro sandals
+                    </p>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <p>69$</p>
+                    <button class="border-style">Buy now</button>
+                </div>
+
+                <div style="  background-color: white;width: 200px;; text-align: center;">
+                    <div><img src="src/pant.jpg" height="150px"></div>
+                    <p>
+                        New pant
+                    </p>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <p>99$</p>
+                    <button class="border-style">Buy now</button>
+                </div>
+
+                <div style=" background-color: white;width: 200px; text-align: center;">
+                    <div><img src="src/air jordan.jpg" height="150px"></div>
+                    <p>
+                        Nike air jordan 1 low
+                    </p>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <p>135$</p>
+
+                    <button class="border-style">Buy now</button>
+                </div>
+            </div>
+    </div>
+    </div>
+    </div>
+    <div class="grid-container; right-side">
+        <div style="font-size: 20px;">
+            filter by price <br>
+            <input type="range" style="height: 60px; width: 250px;">
+            <output>100</output>
+
+        </div>
+
+        <p class="grid-li">
+            Featured Products
+        </p>
+        <div class="grid-item">
+            <img src="src/air jordan hight.jpg" class="img-size">
+            <p style="padding-left: 10px;">
+                Nike<br>
+                400$
+            </p>
+            <div style="padding-left: 30px; ">
+                <div>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+
+                </div>
+                <div>
+                    <button class="border-style" style="padding-top: 0%; height: 50px;">Buy now</button>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="grid-item">
+            <img src="src/jackets.jpg" class="img-size">
+            <p style="padding-left: 5px;">
+                jacket <br>
+                500$
+            </p>
+            <div style="padding-left: 30px; ">
+                <div>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+
+                </div>
+                <div>
+                    <button class="border-style" style="padding-top: 0%; height: 50px;">Buy now</button>
+                </div>
+            </div>
+            
+
+        </div>
+
+        <div class="grid-item">
+            <img src="src/vans.jpg" class="img-size">
+            <p style="padding-left: 10px;">
+                vans <br>
+                99$
+            </p>
+            <div style="padding-left: 40px; ">
+                <div>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+
+                </div>
+                <div>
+                    <button class="border-style" style="padding-top: 0%; height: 50px;">Buy now</button>
+                </div>
+            </div>
+            
+            
+        </div>
+
+        <div class="grid-item">
+            <img src="src/vans knu.jpg" class="img-size">
+            <p style="padding-left: 10px;">
+                vans <br>
+                99$
+            </p>
+            <div style="padding-left: 40px; ">
+                <div>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+                    <i class="material-icons" style="font-size: 20px;">star</i>
+
+                </div>
+                <div>
+                    <button class="border-style" style="padding-top: 0%; height: 50px;">Buy now</button>
+                </div>
+            
+        </div>
+    </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://fonts.googleapis.com/css?family=Alexandria' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .dropbtn {
+            background-color: #10438f;
+            color: #e9ebef;
+            padding: 16px;
+            font-size: 16px;
+            cursor: pointer;
+
+            border-radius: 20px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #c4aa16;
+        }
+
+
+        .display {
+            display: flex;
+            float: left;
+            margin-right: 100px;
+
+
+        }
+
+        .box {
+            width: 100%;
+            height: 80px;
+            background-color: rgb(255, 252, 252);
+            display: flex;
+
+        }
+
+        .navbar {
+            background-color: rgb(248, 245, 246);
+            width: 100%;
+            height: 80px;
+        }
+
+        .navdiv {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            padding-left: 100px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600px;
+            color: blue;
+        }
+
+        li {
+            list-style: none;
+            display: inline-block;
+        }
+
+        li a {
+            color: navy;
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 25px;
+        }
+
+        .img-size {
+            width: 150px;
+            height: 150px;
+        }
+
+        .grid-container {
+            align-items: center;
+            float: right;
+            padding-right: 80px;
+            display: grid;
+            grid-template-columns: auto;
+
+        }
+
+        .grid-item {
+
+            padding: 10px;
+            padding-right: 10px;
+            font-size: 20px;
+            display: flex;
+            line-height: 100px;
+
+        }
+
+        .grid-li {
+            padding: 1px;
+            font-size: 20px;
+            text-align: center;
+
+        }
+
+        .border-style {
+            border: solid grey;
+            background-color: gray;
+            border-radius: 14px;
+            padding: 5px;
+            
+
+        }
+        .border-style:hover{
+            border: solid rgb(94, 57, 57);
+            background-color: rgb(94, 57, 57);
+            border-radius: 14px;
+            padding: 5px;
+
+
+
+
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+    <div style="font-family: 'Alexandria';">
+        <nav class="navbar">
+            <div class="navdiv">
+                <div class="logo"><a href="#">
+                        <h1>Shopi</h1>
+                    </a></div>
+                <ul>
+                    <li><a href="#"> HOME</a></li>
+                    <li><a href="#">POST FORMATS</a></li>
+                    <li><a href="#">PAGES</a></li>
+                    <li><a href="#">PURCHASE</a></li>
+                </ul>
+            </div>
+            <div style="position: absolute;right: 200px;top: 40px;"><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEtklEQVRYhaVXT2icRRT/vdkvm4SUtGqzLmlao6QijXorFL0k0oNECBTBS0TwIEIPRTyIUAlL2pwK6a2IFD1IBHMRAu21PcmCx5JcDFjbNd0kVJrUr0k2O+/n4fvm+79JrA+Gmd2Zee/3fvPmvfkEh5TRJZb//h3jQkwSOCPAIIlBABDBKoFVAZYpWHzxNO4sjUrrMHrloAXDt1ht7WBaiSmA/alJEhAJegAMFRKyJcL5nl4zc/8DaT4XgJHb7P7H18tQfEmwL2Mh3C0xiELl4sNw7kifmV2ZkN1DAxheYHVb7S8kziXt5STDQF57MCdG6r2mdOH+R3k2cgAqP/Ftqr0FcMgZd4sIQiBgCMmNxa3IbEjjk4ZBaWLtY7nXEcDAAqvYbf9G1aHAAQFJSAeK3RxDBrLrc/PGNNDtnd1IMBFpHrnN7s31vbsEzyUsZChOu1gywBdvGXz4WgmnjgBGgO02sNUCHu8Q52+1MxQSIqZ+tNI15mLCc7aerLUuUxPGIwCIAUj83/Ee4Pv3uvBO1aS2dJWB/jIwdERAS6QRAISee7LWugxgOmJg4AdWaXdXyDDaO0iSkJ/f78L5k6X9luP4zZ3M/uh4fOP1jGx8Kk0DANramda29qklaAmNmiZ6BTQYv/uyHGgcQKhLwVAv1enXvnZrZxoAzOgCy7Q6RSWgwSJEDYke4RzwyRsHGwfi9Yz0xv+J1anRBZa9R4/9cbUIMlzu3mWCMByffiF/K35c3sPV+h7Wnyk6pJeUfgL9j9b8cc+2OHmAH4n9QQYYOWZyq67+2sL6M4b6s6m5WCww6UF5Zn8AsWhISF9X3sPmUxuZYyrqY8lmbhE541ExmC8mxSIIwqEYXdJcsYbsLAWDHlQHk6mc2R0JRNwHHS0LYgj7eiSGgx4s4/kOG55+faxYQ0K2vjqa+v1gU/Hmt1ugxpTnEqsCnipWSb5eiDBReP6rPNy0UBsfrRukWDSy6tFyFQgAZBE+r/EAQJC4cs+F5HFbrHq0ugxgrGD+f8nDJzasBengS71nwGUjIovZVOkyV5TBnkMamxruT2bCdKYVkUUZrbH8h328QbI/W7+z4ua2rw7k5nq/2cjd83wijd8LIrL1aumlAbNUkxYt52k1yNVhn8zbzgO12pkRDQqY65Nj53GyoNFyfqkmLQMApswZtfQZVj9aDRsTPQHXFwgV4fEhrn6dm2/KnAEAAwB+rdI04BzD6hecm2MBOUYKCUh45zwmEfVkyCQBgHN+rdKMAADA0FB1lsp6EIha3NwRFcVH6LmkGEiyqI7B+qmh6qzbFwFYuSS75VLpgiga2VsQtX1iQK0CjHswTM+MAQnRKJdKF1Yuxd8IqbrqX6s0IWYCRAOhJ0h4FP1XFAOJ1497QSUDl2QDYib8a5XUt0GusLeuV+91t7vOwrKO0OvoTN0dLqQg/4JyTYh6T3f5bOt69V52W/5lAcC/UWkOl06MCeQKCd8FpYuDQvshWE3GkNIX4sqwnBjLeu7kwI/Tvovr1e32zjTBKUD6QUK/O5VbZz5/gCjRimwJMd/r9cz4N4oNHxpAJDWWvb8ejrdVJ3nzlYs5RZ/9eRfEMoxZxImTd1A73Of5vzUT5iP/7xTcAAAAAElFTkSuQmCC"
+                    height="20px"></div>
+            <div style="position: absolute;right: 165px;top: 42px;"><img
+                    src="data:image/png;base64,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"
+                    height="18px"></div>
+            <div style="position: absolute;right: 130px;top: 40px;"><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADmUlEQVR4Ab1XA5AjQRQ9G6UrnV0627Zt27Zt27Zt27Z9FyeXiZN3v1NzW9vTmd3J6lW9cKbf6690EmlFIBDIQGzr9/vXE+8RjUSPTIP82Xq6pg27VvPCGoTz08KbiE5oBF3rIG6ge/PGWBhAGlpkAdEHzRCMeInzyEjqcHedj258gbgBM/KU1syjVbwo3aBHCPh+foe0YyMsw/vC0KI2dDVLQ1ejFAzNasI8tDekLWvh+/5VzYQOQGENOxfFfb9+wDplNHTVS0JXrUTUpGusk0aye0Ka4CPBi6cNFXbn2RPQ16vIi2igvn4luC6dVUuHWBOs4KCAtGtzOKICbXOnqKVjbqhW8yl2rrqwqUcb2Nctg/P4QThPHKLXy2Hq2ZYXXzgTCARUu4NLBetzZbHp61YQhI3tG8N9/zbU4L53C4bW9fF3+XwtnbH+f79nVA4Z++IBgri5fxcEbDZEh4Bk19qaEkUhPQt/W24Bxwd4z6SEdVSOCHHWcn6LCXEN0m7Fwr+ec/ZpJrznkwcpLcsEfZ3icJ4+hvgAaa9hBu5x+X9Qk4lH0H0wJ+D1xpeB28yAEZHgvZqFM+B71gZRoeoMu2ZeeuEVBhMz4OEMXEjJGfC/nxBnBnbc8CgNuBPUwKYr7pAGDFGm4GnrODOw97YQAZ1YhA9rcQa+Xy0Ij9+LcPFR5xcMXHnlFYtQbMPZEeLHTuRE+d2NcfjDeYSL3bc8goFfloDYhuwMxw+iT3CcT42Zh4uh+O5mQdY83BUGpxla8dcZQPPFEifeeY0j1CBqGTxskhPu20W3pjJhju3PjIDFHf0o9viAUbucwu73iPmXAKT7/2O0AZHw065Dxf3tBBP1j/bC1R/3oYa35s/odmQ3CVo5cRYNh1sI/9rIP8d5/X6+0k59vioLi2x+ciAWPNyEvW9PYd+701jxdAe6nx+HErubB78vtXkUqsz5FmHg2mufUtxDmrmVB5J5UGDb6yOCuFaW2NEZFRfeFXpfNjBL7Rj+DAqc+XKd0tE+bAOl9rTEuqdHQok/BpBK7VyYRz69cvgl6THu5iKU3NNck3ivixPxyvQhlPhvALmi+0NSmDfBF+eWV4fQ//JU1DnSA6X3tmQ7pTbthh4XJgRr4bXpI2QI4rTBQurKYiSeIo7Awi7sXIOJ1Oz0SvTGQthDnKWW83CisZ4ohSEsEdfKrRY3YAdIYis2v4m3iTqiW6ZO/mwNG6/yhNOEf6HhfzYhUKeuAAAAAElFTkSuQmCC"
+                    height="20px"></div>
+            <div style="position: absolute;right: 100px;top: 38px;"><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAATlBMVEVHcEzuTCzuTCzuTSzuTSzuTS3uTSzuTCzuTS3uTSzuTCztTCzuTCzuTCztRyT0mo3zkILyg3LuTCzuTCzvW0Hwa1b5y8TsNwftQBjuTCz85D9KAAAAGnRSTlMABD/CivlUJv91uK3q0f//////Ff//////nLnBFYcAAADESURBVHgBtcvBDsIgEARQoBQGaLcVLML//6hsL0rRxIuT7M7hZcT/I9U0qW+oZ2Nm/dks+MN+Hjr+bpwqH8KyBu/DurSvOjToYvolQATO2f3SgradTts3gr3i7UYR4L5iiqDTuIHUoUS8g7H1ESH6IB750TQ+8n1ElC2XUijvhBFRjtxyFAw4A4iFpwCWCy5g5TeiNJhfMeL31CSEagOr1WDJuxBcrVpVXU11Ib1jXZ3zddJ2Cs41tN1USCnbiXNipPhnnvM7C4rbn4JfAAAAAElFTkSuQmCC"
+                    height="25px"></div>
+            <div style="position: absolute;right: 20px;top: 40px;"><img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa9YWNQr7ROTfXXriGnUP9XJR9EsrW5iHgvV_sjzNPGRuZmIdfvQgA-KNUFA&s"
+                    height="20px"></div>
+    </div>
+</body>
+
+<body style="background-color: wheat; font-family:'Alexandria';">
+    <div style="padding-left: 100px;width: 70%;">
+        <div>
+            <h1>Shop</h1>
+        </div>
+        <div style="display: flex;justify-content: space-between;">
+            <span>SHOWING 1-12 OF 19 RESULTS</span>
+            <span>DEFAULT SORTING</span>
+            <!-- <div class="dropdown">
+                <p class="dropbtn">DEFAULT SORTING</p>
+                <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+            </div> -->
+        </div>
+        <div style="padding-top: 35px; display: grid;grid-template-columns: auto auto auto;row-gap: 50px;">
+            <div style=" background-color: white; width: 200px;text-align: center;">
+                <div><img src="src/bag.jpg" height="150px"></div>
+                <p>
+                    New bag
+                </p>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <p>200$</p>
+                <button class="border-style">Buy now</button>
+            </div>
+
+            <div style="background-color:  white;width: 200px; text-align: center;">
+                <div><img src="src/watch zinvo.jpg" height="150px"></div>
+                <p>
+                    New Zinvo Watch
+                </p>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <p>399$</p>
+                <button class="border-style">Buy now</button>
+            </div>
+
+            <div style="background-color: white; width: 200px;text-align: center;">
+                <div><img src="src/burberry hoodie.webp" height="150px"></div>
+                <p>
+                    New Burberry hoodie
+                </p>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <p>350$</p>
+                <button class="border-style">Buy now</button>
+            </div>
+
+            <div style="background-color: white; text-align: center; width: 200px;">
+                <div><img src="src/pedro shose.jpg" height="150px"></div>
+                <p>
+                    New Pedro sandals
+                </p>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <p>69$</p>
+                <button class="border-style">Buy now</button>
+            </div>
+
+            <div style="  background-color: white;width: 200px;; text-align: center;">
+                <div><img src="src/pant.jpg" height="150px"></div>
+                <p>
+                    New pant
+                </p>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <p>99$</p>
+                <button class="border-style">Buy now</button>
+            </div>
+
+            <div style=" background-color: white;width: 200px; text-align: center;">
+                <div><img src="src/air jordan.jpg" height="150px"></div>
+                <p>
+                    Nike air jordan 1 low
+                </p>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <i class="material-icons" style="font-size: 20px;">star</i>
+                <p>135$</p>
+
+                <button class="border-style">Buy now</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="grid-container">
+        <p class="grid-li">
+            Featured Products
+        </p>
+        <div class="grid-item">
+            <img src="src/air jordan hight.jpg" class="img-size">
+            <p>
+                Nike
+                400$
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <img src="src/jackets.jpg" class="img-size">
+            <p>
+                jacket
+                500$
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <img src="src/vans.jpg" class="img-size">
+            <p>
+                vans
+                99$
+            </p>
+        </div>
+
+        <div class="grid-item">
+            <img src="src/vans knu.jpg" class="img-size">
+            <p>
+                vans
+                99$
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
